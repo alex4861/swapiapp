@@ -1,0 +1,11 @@
+body{
+    background-image: url('./background.png');
+    background-blend-mode: multiply;
+    color: white;
+}
+.title-span{
+    color: #ffe300;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3rem;
+
+}
