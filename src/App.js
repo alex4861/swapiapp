@@ -5,6 +5,9 @@ import Header  from './components/header'
 import './styles.css'
 import './App.css';
 import{FILMS, BASE_URL} from './constants/apiConstants'
+import {Row, Col} from'react-bootstrap'      
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class App extends Component {
    handleSelectedFilm = index =>{
@@ -63,16 +66,21 @@ class App extends Component {
     return (
       <div className="App">
         <Header></Header>
-        { data ? 
-        <MovieList 
-        data ={data}
-        onSelectedFilm = {this.handleSelectedFilm}
-        />:
-        "cargando"}
-        { dataShip ? 
-        <ShipList dataShip= {dataShip}/>:
-        "cargando"}
-        
+          <Row>
+            <Col md={3}>
+            { data ? 
+              <MovieList 
+              data ={data}
+              onSelectedFilm = {this.handleSelectedFilm}
+              />:
+              "cargando"}
+            </Col>
+            <Col md={9}>
+            { dataShip ? 
+              <ShipList dataShip= {dataShip}/>:
+              "cargando"}
+            </Col>
+          </Row>  
       </div>
     );
   

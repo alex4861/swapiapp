@@ -1,6 +1,5 @@
 import React from "react";
 import List from'./list';
-import {Row, Col} from'react-bootstrap'      
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -22,12 +21,7 @@ const movieList = ({data,onSelectedFilm }) =>  {
    )
       return(
          <div>
-            <Row>
-               <Col md={2}>
                   {strToComponents(data)}
-               </Col>
-
-            </Row>
          </div>         
       );
 }
