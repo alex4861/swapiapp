@@ -1,0 +1,18 @@
+.starShipButton{
+    background-color: #ffe300;
+    border-color: transparent;
+    width: 100%;
+}
+.borderStarshipButton{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.starShipButton:hover{
+    background-color:#CABE53;
+    color: white;
+
+ }

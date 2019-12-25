@@ -1,15 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import TableList from './TableList'
+import { Row, Col, Container } from 'react-bootstrap';
+import './styles.css'
 
-class shipList extends Component{
-
-
-    render(){
-        console.log("actualizando");
+const shipList = ({dataShip}) => {
         
-        console.log(this.props.dataShip);
+    const strToComponents = dataArray =>(   
+        dataArray.map( (title, i) =>
+         (
+               <Col md={3} className='borderStarshipButton'><TableList data = {title}></TableList> </Col>
+         ))
+     )
+
+        
         return(<div>
-        </div>);
-    }
+            <Container>
+                <Row>
+                    {strToComponents(dataShip)}
+                </Row>
+            </Container>
+            
+        </div>)
 }
 
 export default shipList;
