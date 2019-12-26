@@ -8,10 +8,12 @@ import EditingView from './editView/editingView';
 class detailTable extends Component{
 
     setEditableData =() =>{
+        const {data} = this.props
+        const {name, manufacturer, cost_in_credits} = data
         const dataToSend = {
-            name: "nombre",
-            manufacturer: "terzigma",
-            cost: "1000"
+            name: name,
+            manufacturer: manufacturer,
+            cost: cost_in_credits
         }
         console.log(dataToSend);
         
