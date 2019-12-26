@@ -1,13 +1,16 @@
-import React from 'react'
-import {Row, Col} from'react-bootstrap'      
+import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
 
- const TableList = ({data}) =>{
-     const {name} = data
-     return(
-                 <button className='starShipButton'>{name}</button>
-     )
+ class TableList extends Component{
+     render(){
+        const {data, onButtonClick} = this.props
+        const {name} = data
+        return(
+                    <button className='starShipButton' onClick={onButtonClick}>{name}</button>
+        )
+     }
+     
  }
 
  export default TableList;
