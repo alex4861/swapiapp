@@ -14,7 +14,7 @@ class editingView extends Component{
             }
             else{
                 const bodyPost = this.state
-                fetch("http://localhost:1234/saveStarship", {method:'POST', body:JSON.stringify(bodyPost), headers: { 'content-type': 'application/json'}})
+                fetch("https://swapi-back-end.herokuapp.com/saveStarship", {method:'POST', body:JSON.stringify(bodyPost), headers: { 'content-type': 'application/json'}})
                 .then(response =>{
                     return response.json();
                 }).then(data =>{alert("los datos se han guardado de forma correcta")

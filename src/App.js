@@ -58,7 +58,7 @@ class App extends Component {
    }
 
    handleonSelectedMyStarShip = uid =>{
-     const url = `http://localhost:1234/MyStarships/${uid}`
+     const url = `https://swapi-back-end.herokuapp.com/MyStarships/${uid}`
     console.log(url);
     fetch(url)
     .then(response =>{ return response.json()})
@@ -119,7 +119,7 @@ class App extends Component {
     }
   }
   getMyStarships = () =>{
-    fetch('http://localhost:1234/MyStarships')
+    fetch('https://swapi-back-end.herokuapp.com/MyStarships')
     .then(response =>{
       return response.json()
     })
