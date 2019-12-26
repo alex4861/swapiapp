@@ -3,12 +3,16 @@ import TableList from './TableList'
 import { Row, Col, Container } from 'react-bootstrap';
 import './styles.css'
 
-const shipList = ({dataShip}) => {
+const shipList = ({dataShip, onSelectedStarShip}) => {
         
+    const handleOnButtonClick = index =>{
+        console.log("handleOnButtonClick pressed");
+        onSelectedStarShip(index)
+     }
     const strToComponents = dataArray =>(   
         dataArray.map( (title, i) =>
          (
-               <Col md={3} className='borderStarshipButton'><TableList data = {title}></TableList> </Col>
+               <Col md={3} className='borderStarshipButton'><TableList data = {title} onButtonClick = {() => handleOnButtonClick(title.url)}></TableList> </Col>
          ))
      )
 

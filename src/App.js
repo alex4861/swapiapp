@@ -2,6 +2,7 @@ import React , {Component} from 'react';
 import MovieList from './components/movieList'
 import ShipList from './components/shipList'
 import Header  from './components/header'
+import DetailTable from './components/detailTable'
 import './styles.css'
 import './App.css';
 import{FILMS, BASE_URL} from './constants/apiConstants'
@@ -10,6 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends Component {
+
+  //Create fetch for get data of FILMS
    handleSelectedFilm = index =>{
      const dataShipArray = []
      console.log("handleSelectedFilm activated");
@@ -23,7 +26,7 @@ class App extends Component {
          .then(response => {return response.json()})
          .then(dataShip =>{
            dataShipArray.push(dataShip)
-           this.setState({dataShip: dataShipArray,})
+           this.setState({dataShip: dataShipArray,detail:null,})
 
          }) 
          .catch(error => {console.error(error);
@@ -34,6 +37,23 @@ class App extends Component {
      .catch(error => {console.error(`error al consultar films: ${error}`);
      })
          
+   }
+  //Create fetch for get data of FILMS
+  handleonSelectedStarShip = url =>{
+     console.log(url);
+     fetch(url)
+     .then(response =>{ return response.json();})
+     .then(data =>{ 
+       console.log(data);
+       this.setState({detail: data,})
+
+       
+     })
+     .catch(error =>{
+       console.error(`hubo un error ${error}`);
+       
+     })
+     
    }
   constructor(){
     super();
@@ -62,12 +82,15 @@ class App extends Component {
 
  
   render(){
-    const { data, dataShip } = this.state;
+    const { data, dataShip, detail } = this.state;
     return (
       <div className="App">
         <Header></Header>
-          <Row>
-            <Col md={3}>
+        <div className="container-fluid">
+        <Row>
+            <Col md={3}
+                          className='movieList'
+                          >
             { data ? 
               <MovieList 
               data ={data}
@@ -75,12 +98,20 @@ class App extends Component {
               />:
               "cargando"}
             </Col>
+
             <Col md={9}>
-            { dataShip ? 
-              <ShipList dataShip= {dataShip}/>:
-              "cargando"}
+            {detail? <DetailTable data ={detail}/> :
+             dataShip ? 
+              <ShipList 
+              dataShip= {dataShip}
+              onSelectedStarShip = {this.handleonSelectedStarShip}/>:
+              "cargando"
+
+            }
             </Col>
-          </Row>  
+          </Row>
+        </div>
+            
       </div>
     );
   

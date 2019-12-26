@@ -1,0 +1,34 @@
+.button{
+    background-color: #ffe300;
+    border-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+    font-weight: 800;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+.button:hover{
+    background-color:#CABE53;
+    color: white;
+
+ }
+
+ .buttonSave{
+    background-color: #3E73D4;
+    border-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+    font-weight: 800;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+.buttonSave:hover{
+    background-color:#3B69BD;
+    color: white;
+
+ }
+ .label{
+     color: white;
+ }
