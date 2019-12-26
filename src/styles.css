@@ -18,3 +18,15 @@ span{
 .Card .Header{
     color: black;
 }
+.myStarshipsButton{
+    background-color: #3E73D4;
+    color: black;
+    border-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+}
+.myStarshipsButton:hover{
+    background-color:#3B69BD;
+    color: white;
+
+}
