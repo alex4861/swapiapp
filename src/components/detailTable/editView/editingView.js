@@ -4,11 +4,19 @@ import {Row, Form} from'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class editingView extends Component{
+    constructor(){
+        super()
+        this.state={
+            name:"",
+            manufacturer:"",
+            cost:"",
+        }
+    }
     handleSubmit = (event) =>{
         event.preventDefault();
         if(this.state){
             if (this.state.name === "" || this.state.manufacturer=== "" || this.state.cost ==="") {
-                alert("complete the fields to continue")
+                alert("You must make changes to continue")
 
                 
             }
@@ -17,7 +25,7 @@ class editingView extends Component{
                 fetch("https://swapi-back-end.herokuapp.com/saveStarship", {method:'POST', body:JSON.stringify(bodyPost), headers: { 'content-type': 'application/json'}})
                 .then(response =>{
                     return response.json();
-                }).then(data =>{alert("los datos se han guardado de forma correcta")
+                }).then(data =>{alert("The starship has been uploaded")
                 }).catch(error =>{
                     console.error(error);
                     
@@ -53,7 +61,7 @@ class editingView extends Component{
                         <Form.Control name='name' type='text' defaultValue={data.name} onChange={e => this.handleChange(e)}></Form.Control>
                     </Row>
                     <Row>
-                        <label className="label">Manufacurer</label>
+                        <label className="label">Manufacturer</label>
                     </Row>
                     <Row>
                         <Form.Control name='manufacturer' type='text' defaultValue={data.manufacturer} onChange={e => this.handleChange(e)}></Form.Control>
