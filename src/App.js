@@ -28,7 +28,7 @@ class App extends Component {
          .then(response => {return response.json()})
          .then(dataShip =>{
            dataShipArray.push(dataShip)
-           this.setState({dataShip: dataShipArray,detail:null,})
+           this.setState({dataShip: dataShipArray,})
            this.setState({render:"shipList"})
          }) 
          .catch(error => {console.error(error);
@@ -63,9 +63,9 @@ class App extends Component {
     fetch(url)
     .then(response =>{ return response.json()})
     .then(data =>{ 
-      console.log(data);
+      const send = data['0']
       
-      this.setState({detailMS: data, render:"detailMS",})
+      this.setState({detailMS: send, render:"detailMS",})
     })
     .catch(error =>{
       console.error(`hubo un error: ${error}`);
