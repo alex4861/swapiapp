@@ -8,7 +8,7 @@ import DetailTable from './components/detailTable'
 import './styles.css'
 import './App.css';
 import{FILMS, BASE_URL} from './constants/apiConstants'
-import {Row, Col} from'react-bootstrap'      
+import {Row, Col, Spinner} from'react-bootstrap'      
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -150,7 +150,8 @@ class App extends Component {
               onSelectedFilm = {this.handleSelectedFilm}
               />
               :
-              "cargando"}
+              <Spinner animation="grow" variant="warning" />
+            }
               <div className='p-4'><button onClick={this.getMyStarships} className='myStarshipsButton'> Mis sitios</button></div>
             </Col>
 
